@@ -1,0 +1,35 @@
+# Example configuration file for go-jira-scraper
+# Copy this to one of the following locations:
+#   - ./.go-jira-scraper.yaml (current directory)
+#   - ~/.go-jira-scraper.yaml (home directory)
+#   - /etc/.go-jira-scraper.yaml (system-wide)
+
+# JIRA connection settings
+jira:
+  url: "https://issues.redhat.com"
+  
+  # JIRA API token - can be set in one of three ways (in priority order):
+  # 1. Command-line flag: --jira-token "your-token"
+  # 2. Config file (uncomment the line below):
+  # token: "your-token-here"
+  # 3. Environment variable: export JIRA_TOKEN="your-token"
+  # 
+  # NOTE: Storing tokens in config files is convenient but less secure.
+  #       For better security, use environment variables or a secrets manager.
+
+# Cache configuration
+cache:
+  directory: ".data"
+
+# Scraper settings
+scraper:
+  workers: 4        # Number of concurrent workers for fetching
+  batch_size: 100   # Issues per batch when searching
+
+# Logging configuration (optional)
+log_level: "info"    # Options: debug, info, warn, error
+log_format: "text"   # Options: text, json
+
+# Note: Command-line flags override config file settings
+# Note: Environment variables override config file settings
+
